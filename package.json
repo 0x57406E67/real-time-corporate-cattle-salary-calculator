@@ -1,0 +1,95 @@
+{
+  "name": "real-time-corporate-cattle-salary-calculator",
+  "icon": "images/icon.png",
+  "displayName": "Real-time Corporate Cattle Salary Calculator",
+  "description": "Calculate and display real-time salary information in status bar",
+  "version": "1.0.0",
+  "publisher": "ox57-vsc-tools",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/0x57406E67/real-time-corporate-cattle-salary-calculator"
+  },
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "rt-salary-calc.configure",
+        "title": "Configure Salary Calculator"
+      },
+      {
+        "command": "rt-salary-calc.start",
+        "title": "Start Salary Calculator"
+      },
+      {
+        "command": "rt-salary-calc.end",
+        "title": "Stop Salary Calculator"
+      }
+    ],
+    "configuration": {
+      "title": "Real-time Corporate Cattle Salary Calculator",
+      "properties": {
+        "rtSalaryCalc.monthlySalary": {
+          "type": "number",
+          "default": 3000,
+          "description": "月薪（人民币）"
+        },
+        "rtSalaryCalc.workingDaysPerMonth": {
+          "type": "number",
+          "default": 22,
+          "description": "每月工作天数"
+        },
+        "rtSalaryCalc.defaultStartTime": {
+          "type": "string",
+          "default": "9:00",
+          "description": "上班开始时间（24小时制，格式HH:mm）"
+        },
+        "rtSalaryCalc.endTime": {
+          "type": "string",
+          "default": "18:00",
+          "description": "下班时间（24小时制，格式HH:mm）"
+        },
+        "rtSalaryCalc.lunchStart": {
+          "type": "string",
+          "default": "12:00",
+          "description": "午休开始时间（24小时制，格式HH:mm）"
+        },
+        "rtSalaryCalc.lunchEnd": {
+          "type": "string",
+          "default": "13:00",
+          "description": "午休结束时间（24小时制，格式HH:mm）"
+        },
+        "rtSalaryCalc.drinkType": {
+          "type": "string",
+          "default": "奶茶",
+          "enum": ["奶茶", "咖啡"],
+          "description": "饮料类型"
+        },
+        "rtSalaryCalc.drinkPrice": {
+          "type": "number",
+          "default": 15,
+          "description": "饮料价格(元)"
+        },
+        "rtSalaryCalc.statusBarPosition": {
+          "type": "string",
+          "default": "right",
+          "enum": ["left", "right"],
+          "description": "状态栏显示位置"
+        },
+        "rtSalaryCalc.refreshInterval": {
+          "type": "number",
+          "default": 1000,
+          "description": "刷新间隔时间(毫秒)"
+        }
+      }
+    }
+  }
+}
